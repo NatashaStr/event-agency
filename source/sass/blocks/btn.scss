@@ -1,0 +1,25 @@
+.btn {
+  display: inline-flex;
+  padding: 10px 20px;
+
+  color: $color-default-white;
+  font-size: 1.6rem;
+
+  background-image: linear-gradient(to bottom, $color-light-pink 0%, $color-lavanda 100%, );
+  box-shadow: 0 2px 1px 1px $color-lavanda-dark;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  transition: opacity $trans-default;
+
+  &:disabled {
+    opacity: 0.5;
+
+    pointer-events: none;
+  }
+
+  @include hover-focus {
+    opacity: 0.8;
+  }
+}

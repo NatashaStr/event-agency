@@ -1,0 +1,159 @@
+.header {
+    padding: 20px 0;
+    background-color: $color-lavanda;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__nav-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: all ease 0.5s;
+    }
+
+    &__user-phone-link {
+        display: none;
+
+        @include vp-768 {
+            display: block;
+        }
+    }
+
+    &__btn {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border: none;
+        border-radius: 50%;
+        background-color: $color-default-white;
+        z-index: 1000;
+    }
+
+    &__btn-image {
+        position: relative;
+        width: 30px;
+        height: 3px;
+        background-color: $color-lavanda;
+        transition: background-color $trans-default;
+    }
+
+    &__btn-image::before,
+    &__btn-image::after {
+        position: absolute;
+        content: "";
+        width: 30px;
+        height: 3px;
+        background-color: $color-lavanda;
+        transition: transform $trans-default;
+    }
+
+    &__btn-image::before {
+        top: 9px;
+        left: 0;
+    }
+
+    &__btn-image::after {
+        bottom: 9px;
+        left: 0;
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        padding-top: 30px;
+        padding-left: 30px;
+    }
+
+    &__item {
+        margin-bottom: 20px;
+    }
+
+    &__link {
+        font-size: 1.8rem;
+        color: $color-lavanda;
+    }
+
+    &__user-list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        margin-left: 30px;
+        margin-bottom: 30px;
+    }
+
+    &__user-item {
+        margin-right: 15px;
+    }
+
+    &__user-item svg {
+        fill: $color-lavanda;
+    }
+
+    &__user-btn span {
+        display: none;
+
+        @include vp-768 {
+            display: block;
+        }
+    }
+}
+
+// Бургер меню
+
+[data-menu="is-closed"] {
+    transform: translateX(150%);
+    width: 100vw;
+    display: none;
+
+    @include vp-768 {
+        display: block;
+    }
+}
+
+[data-menu="is-opened"] {
+    display: block;
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    background-color: $color-default-white;
+    transform: translateX(0);
+}
+
+[data-burger="is-closed"] {
+    background-color: $color-default-white;
+    transition: background-color $trans-default;
+}
+
+[data-burger="is-opened"] {
+    background-color: $color-light-puple;
+    transition: background-color $trans-default;
+}
+
+[data-burger="is-opened"] .header__btn-image {
+    background-color: $color-transparent;
+}
+
+[data-burger="is-opened"] .header__btn-image::after {
+    transform: rotate(45deg);
+    transform-origin: 0%;
+    width: 35px;
+    top: -12px;
+    left: 2px;
+}
+
+[data-burger="is-opened"] .header__btn-image::before {
+    transform-origin: 0%;
+    width: 35px;
+    transform: rotate(-45deg);
+    top: 12px;
+    left: 2px;
+}
